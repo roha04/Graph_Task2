@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.example</groupId>
+    <artifactId>graphql-subscriptions</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>graphql-subscriptions</name>
+    <description>Spring Boot GraphQL Subscriptions Example</description>
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- 1) Реактивний HTTP + WebSocket -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!-- 2) GraphQL (HTTP + WS Subscriptions) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-graphql</artifactId>
+        </dependency>
+
+        <!-- Optional: Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Для юніт-тестів -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.graphql</groupId>
+            <artifactId>spring-graphql-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Maven Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
